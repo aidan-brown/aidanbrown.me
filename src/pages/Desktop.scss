@@ -1,0 +1,75 @@
+.Desktop {
+    height: calc(100vh - 36px);
+    width: 100vw;
+    overflow: hidden;
+    background-color: #111;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Taskbar {
+    height: 36px;
+    width: 100vw;
+    position: relative;
+    background-color: lightgray;
+    padding: 2px;
+    padding-bottom: 4px;
+    display: grid;
+    grid-template-columns: 60px 1fr 250px;
+    grid-template-rows: 32px;
+
+    .Taskbar-button {
+        height: 28px;
+        width: 100%;
+        padding: 2px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 10px;
+        background-color: lightgray;
+
+        img{
+            aspect-ratio: 1/1;
+            height: 100%;
+            padding: 1px;
+            padding-right: 3px;
+        }
+    }
+
+    .Taskbar-windows {
+        position: relative;
+        height: calc(100% - 2px);
+        top: -2px;
+        padding-left: 2px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        .Taskbar-button {
+            max-width: 200px;
+            margin-left: 2px;
+
+            &.active {
+                background-color: white;
+                border-color: rgba(17, 17, 17, 0.75) rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.75) rgba(17, 17, 17, 0.75);
+                border-style: inset;
+            }
+        }
+    }
+
+    .Taskbar-controls {
+        position: relative;
+        height: 100%;
+        top: -2px;
+        border: rgba(17, 17, 17, 0.39) outset 2px;
+        border-width: 2px 0 0 2px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 14px;
+        padding: 2px;
+    }
+}

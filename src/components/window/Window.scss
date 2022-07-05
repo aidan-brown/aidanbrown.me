@@ -1,0 +1,41 @@
+.Window {
+    position: absolute;
+    min-width: 250px;
+    min-height: 250px;
+
+    .Window-titlebar {
+        width: 100%;
+        height: 24px;
+        display: grid;
+        grid-template-columns: 24px 1fr 24px;
+        align-items: center;
+        cursor: default;
+        
+
+        .Window-titlebar-icon, .Window-titlebar-control {
+            width: 16px;
+            height: 16px;
+            margin: 4px;
+        }
+
+        .Window-titlebar-text {
+            font-weight: normal;
+        }
+
+        .Window-titlebar-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+
+    .Window-content {
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: white;
+        width: 100%;
+        height: calc(100% - 24px);
+        padding: 5px;
+    }
+}

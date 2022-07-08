@@ -1,0 +1,32 @@
+.Landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  span {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin: 10px;
+    }
+  }
+
+  .social-icons svg {
+    font-size: x-large;
+    transition: color 200ms;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

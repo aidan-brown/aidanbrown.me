@@ -2,4 +2,45 @@
   width: 100%;
   height: 100%;
   display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-template-rows: repeat(auto-fill, 80px);
+  grid-auto-flow: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  .Icon {
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+
+    .Icon-icon {
+      aspect-ratio: 1/1;
+      width: 48px;
+    }
+
+    .Icon-text {
+      width: 100%;
+      text-align: center;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      font-size: 10px;
+
+      .mark-active {
+        border: 1px dotted rgba(255, 255, 255, 0.278);
+      }
+
+      mark {
+        color: white;
+        background-color: transparent;
+        padding-bottom: 5px;
+      }
+    }
+  }
 }

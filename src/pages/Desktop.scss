@@ -1,10 +1,12 @@
+
 .Desktop {
-    height: calc(100vh - 36px);
-    width: 100vw;
+    height: calc(100% - 36px);
+    width: 100%;
     overflow: hidden;
     background-color: #111;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
 }
 
 .Taskbar {
@@ -15,8 +17,9 @@
     padding: 2px;
     padding-bottom: 4px;
     display: grid;
-    grid-template-columns: 60px 1fr 250px;
+    grid-template-columns: 60px calc(100% - calc(60px + min(250px, 25%))) min(250px, 25%);
     grid-template-rows: 32px;
+    z-index: 999;
 
     .Taskbar-button {
         height: 28px;
@@ -40,16 +43,28 @@
     .Taskbar-windows {
         position: relative;
         height: calc(100% - 2px);
+        width: 100%;
         top: -2px;
         padding-left: 2px;
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
+        flex: 1 1 auto;
         justify-content: flex-start;
         align-items: flex-end;
+        overflow: hidden;
 
         .Taskbar-button {
-            max-width: 200px;
+            min-width: 0;
+            max-width: min(200px, 50%);
             margin-left: 2px;
+
+            p {
+                max-width: calc(100% - 23px);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
 
             &.active {
                 background-color: white;
@@ -71,5 +86,48 @@
         align-items: center;
         font-size: 14px;
         padding: 2px;
+    }
+
+    .Taskbar-menu {
+        background-color: lightgray;
+        position: absolute;
+        width: min(500px, 100%);
+        min-height: min(500px, 100vh);
+        bottom: 32px;
+        left: -2px;
+        z-index: 1000;
+        border-bottom: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 5px;
+
+            .haos-button {
+                width: 100%;
+            }
+        }
+
+        .Taskbar-menu-content {
+            border-color: rgba(17, 17, 17, 0.75) rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.75) rgba(17, 17, 17, 0.75);
+            border-style: inset;
+
+            h2 {
+                margin-bottom: 10px;
+            }
+
+            label {
+                width: 75%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
     }
 }

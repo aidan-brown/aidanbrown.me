@@ -1,0 +1,11 @@
+.Directory {
+  background-color: white;
+  
+  .IconGrid {
+    grid-auto-flow: row;
+
+    .Icon mark {
+    color: black;
+    }
+  }
+}

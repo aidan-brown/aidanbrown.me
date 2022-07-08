@@ -2,9 +2,11 @@
     position: absolute;
     min-width: 250px;
     min-height: 250px;
+    overflow: hidden;
 
     .Window-titlebar {
         width: 100%;
+        padding: 0 2px;
         height: 24px;
         display: grid;
         grid-template-columns: 24px 1fr 24px;
@@ -37,5 +39,9 @@
         width: 100%;
         height: calc(100% - 24px);
         padding: 5px;
+        padding-bottom: 0;
+        border-color: rgba(17, 17, 17, 0.75) rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.75) rgba(17, 17, 17, 0.75);
+        border-style: inset;
+        border-width: 2px;
     }
 }

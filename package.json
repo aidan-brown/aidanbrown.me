@@ -18,8 +18,13 @@
   },
   "homepage": "aidanbrown.me",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-pdf": "^5.6.0",
     "react-router-dom": "^6.0.2",

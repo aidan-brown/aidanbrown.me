@@ -1,8 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import propTypes from 'prop-types';
 import './IconGrid.scss';
 
-const IconGrid = () => (
-  <div className="IconGrid" />
+const IconGrid = ({
+  icons,
+}) => (
+  <div className="IconGrid">
+    {icons}
+  </div>
 );
+
+IconGrid.propTypes = {
+  icons: propTypes.arrayOf(propTypes.node),
+};
+
+IconGrid.defaultProps = {
+  icons: [],
+};
 
 export default IconGrid;

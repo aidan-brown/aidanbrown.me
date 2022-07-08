@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './reset.css';
 import './App.scss';
 import Desktop from './pages';
 

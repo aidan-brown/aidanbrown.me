@@ -3,6 +3,7 @@ import { Window } from '../components';
 import {
   pageIcon, imageIcon, colorado, fileIcon,
 } from '../assets/images';
+import { resume } from '../assets/files';
 import GenericPage from '../pages/subpages/GenericPage/GenericPage';
 
 const experiencePages = [
@@ -401,25 +402,42 @@ const musicProjectsIcons = [
 
 ];
 
-const experienceIcons = experiencePages.map((experience) => ({
-  ...defaultIcon,
-  name: `${experience.company.toLowerCase().replace(' ', '_')}.html`,
-  img: fileIcon,
-  window: {
-    Type: Window,
-    name: experience.company,
-    initialTransform: {
-      w: 500,
-      h: 750,
+const experienceIcons = [
+  {
+    ...defaultIcon,
+    name: `aidan_brown_resume_${(new Date()).getFullYear()}.pdf`,
+    img: fileIcon,
+    window: {
+      Type: Window,
+      name: `aidan_brown_resume_${(new Date()).getFullYear()}.pdf`,
+      initialTransform: {
+        w: 750,
+        h: 825,
+      },
+      className: 'Resume',
+      content: <object data={`${resume}#toolbar=0&navpanes=0&scrollbar=0`} type="application/pdf" width="100%" height="100%" aria-label="Resume" />,
     },
-    className: 'GenericPage',
-    content: <GenericPage
-      title={experience.company}
-      subtitle={experience.title}
-      sections={experience.sections}
-    />,
   },
-}));
+  ...(experiencePages.map((experience) => ({
+    ...defaultIcon,
+    name: `${experience.company.toLowerCase().replace(' ', '_')}.html`,
+    img: fileIcon,
+    window: {
+      Type: Window,
+      name: experience.company,
+      initialTransform: {
+        w: 500,
+        h: 750,
+      },
+      className: 'GenericPage',
+      content: <GenericPage
+        title={experience.company}
+        subtitle={experience.title}
+        sections={experience.sections}
+      />,
+    },
+  }))),
+];
 
 const photosIcons = [
   {

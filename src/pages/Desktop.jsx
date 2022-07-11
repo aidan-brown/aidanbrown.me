@@ -117,7 +117,7 @@ const Desktop = ({
   };
 
   const handleDefocus = (e) => {
-    if ((!e.target.parentElement.className.includes('Desktop'))) return;
+    if ((!e.target.parentElement.className.includes('Desktop')) || (e.target.className.includes('Window'))) return;
     document.querySelectorAll('.mark-active').forEach((activeMark) => {
       // eslint-disable-next-line no-param-reassign
       activeMark.className = '';

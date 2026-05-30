@@ -1,0 +1,10 @@
+declare module '*.scss';
+declare module '*.sass';
+declare module '*.css';
+declare module '*.mp4';
+declare module '*.png';
+declare module '*.webp';
+declare module '*.webm';
+declare module '*.mp3';
+declare module '*.svg';
+declare module '*.pptx';

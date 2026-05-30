@@ -1,0 +1,199 @@
+.StartMenu {
+  position: absolute;
+  bottom: 100%;
+  left: calc(0px - var(--haos-border-width));
+  width: 400px;
+  max-width: calc(100% + 2 * var(--haos-border-width));
+  height: 500px;
+  max-height: 80dvh;
+  background-color: var(--contrast-bg-color);
+  border-bottom: none;
+
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'apps info'
+    'footer footer';
+  grid-template-rows: 60px 1fr 50px;
+  grid-template-columns: 1fr 1fr;
+
+  .menu-header {
+    grid-area: header;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-font-color);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px 10px;
+
+    img {
+      aspect-ratio: 1;
+      height: 100%;
+      border: 2px outset rgba(255, 255, 255, 0.75);
+      margin-right: 10px;
+    }
+  }
+
+  .menu-applications {
+    grid-area: apps;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    font-size: 1.05rem;
+    overflow-y: scroll;
+
+    button {
+      width: 100%;
+      height: 50px;
+      padding: 5px 0;
+      border: none;
+      background: none;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: row;
+      cursor: pointer;
+      text-overflow: ellipsis;
+      text-wrap-mode: nowrap;
+
+      &:hover {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      &:active {
+        border-color: var(--haos-button-border-colors);
+        border-style: var(-haos-button-border-style);
+        border-width: var(--haos-border-width);
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      > img {
+        aspect-ratio: 1;
+        height: 24px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .menu-info {
+    grid-area: info;
+    background-color: rgb(195, 195, 195);
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 0.75fr max-content max-content;
+    font-size: 1.05rem;
+
+    > div {
+      width: calc(100% - 30px);
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      flex-direction: column;
+      margin: 10px 15px 5px 15px;
+      padding-top: 5px;
+      border-top: 1px solid rgba(128, 128, 128, 0.5);
+
+      .directory-entry {
+        position: relative;
+        // border-top: 1px solid rgba(128, 128, 128, 0.25);
+        // border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+        width: 100%;
+
+        font-size: 12px;
+        line-height: 10px;
+
+        button {
+          display: grid;
+          grid-template-columns: 15px 1fr 15px;
+          align-items: end;
+          text-align: left;
+          background: none;
+          border: none;
+          width: 100%;
+          height: fit-content;
+          padding: 5px 0;
+          cursor: pointer;
+
+          img {
+            aspect-ratio: 1;
+            height: 15px;
+          }
+        }
+
+        .expanded-list {
+          display: none;
+        }
+
+        &:hover {
+          background-color: lightgray;
+
+          > .expanded-list {
+            display: block;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 100%;
+            background-color: rgb(195, 195, 195);
+            margin: 0;
+            padding: 0;
+
+            button:hover {
+              background-color: lightgray;
+            }
+
+            .directory-entry {
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      > p,
+      > a {
+        margin-bottom: 5px;
+      }
+
+      &:first-child {
+        border-top: none;
+        margin: 0;
+        padding: 0;
+        padding-left: 5px;
+        width: 100%;
+      }
+    }
+  }
+
+  .menu-footer {
+    grid-area: footer;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-font-color);
+    padding: 5px 15px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+
+    button {
+      aspect-ratio: 1;
+      height: 80%;
+      margin-right: 7.5px;
+      background-color: red;
+      &:disabled {
+        cursor: default;
+        background-color: lightcoral !important;
+        border-color: var(--haos-window-border-colors) !important;
+        border-style: var(--haos-button-border-style) !important;
+      }
+    }
+
+    p {
+      font-size: 1.35rem;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+.Audio {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: var(--contrast-bg-color);
+  display: grid;
+  grid-template-areas:
+    'visualizer controls'
+    'title empty';
+  grid-template-columns: 1fr 30px;
+  grid-template-rows: 1fr calc(25px + 1rem);
+  align-items: center;
+
+  .voice-visualizer {
+    grid-area: visualizer;
+    width: calc(100% - 2rem);
+    height: 100%;
+    padding: 0 1rem;
+    margin: auto;
+    background-color: black;
+    border-color: var(--haos-button-border-colors);
+    border-style: var(--haos-button-border-style);
+    border-width: var(--haos-border-width);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .audio-controls {
+    grid-area: controls;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 100%;
+      aspect-ratio: 1;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0.25rem 0;
+
+      &.ff > span,
+      &.rewind > span {
+        margin: -10px;
+      }
+    }
+  }
+
+  .audio-title {
+    grid-area: title;
+    overflow: hidden;
+    height: 25px;
+    margin: 0.5rem 1rem;
+    position: relative;
+    text-wrap-mode: nowrap;
+    background-color: black;
+    border-color: var(--haos-button-border-colors);
+    border-style: var(--haos-button-border-style);
+    border-width: var(--haos-border-width);
+
+    .marquee {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 30s linear infinite;
+
+      span {
+        margin: 0 2rem;
+        color: white;
+      }
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+}

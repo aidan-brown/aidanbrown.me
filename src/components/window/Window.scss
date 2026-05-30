@@ -1,51 +1,135 @@
 .Window {
+  position: absolute;
+  min-width: 250px;
+  min-height: 250px;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .Window-titlebar {
+    width: 100%;
+    padding: 0 2px;
+    height: 24px;
+    display: grid;
+    grid-template-columns: 24px calc(100% - 48px) 24px;
+    align-items: center;
+    cursor: default;
+    background-color: gray;
+    color: darkgray;
+    text-overflow: ellipsis;
+    text-wrap-mode: nowrap;
+
+    &.active {
+      background-color: var(--primary-bg-color);
+      color: var(--primary-font-color);
+    }
+
+    .Window-titlebar-icon,
+    .Window-titlebar-control {
+      width: 16px;
+      height: 16px;
+      margin: 4px;
+    }
+
+    .Window-titlebar-text {
+      font-weight: normal;
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .Window-titlebar-control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  .Window-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    width: 100%;
+    height: calc(100% - 24px);
+    padding: 5px;
+    padding-bottom: 0;
+    border-color: rgba(17, 17, 17, 0.75) rgba(255, 255, 255, 0.75)
+      rgba(255, 255, 255, 0.75) rgba(17, 17, 17, 0.75);
+    border-style: inset;
+    border-width: 2px;
+  }
+
+  .Window-scale {
     position: absolute;
-    min-width: 250px;
-    min-height: 250px;
-    overflow: hidden;
 
-    .Window-titlebar {
-        width: 100%;
-        padding: 0 2px;
-        height: 24px;
-        display: grid;
-        grid-template-columns: 24px 1fr 24px;
-        align-items: center;
-        cursor: default;
-        
+    &.horizontal-scale {
+      height: 100%;
+      width: 10px;
+      cursor: ew-resize;
 
-        .Window-titlebar-icon, .Window-titlebar-control {
-            width: 16px;
-            height: 16px;
-            margin: 4px;
-        }
+      &.east-scale {
+        top: 0;
+        right: -5px;
+      }
 
-        .Window-titlebar-text {
-            font-weight: normal;
-        }
-
-        .Window-titlebar-control {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
+      &.west-scale {
+        top: 0;
+        left: -5px;
+      }
     }
 
-    .Window-content {
-        overflow-y: auto;
-        overflow-x: hidden;
-        background-color: white;
-        width: 100%;
-        height: calc(100% - 24px);
-        padding: 5px;
-        padding-bottom: 0;
-        border-color: rgba(17, 17, 17, 0.75) rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.75) rgba(17, 17, 17, 0.75);
-        border-style: inset;
-        border-width: 2px;
+    &.vertical-scale {
+      width: 100%;
+      height: 10px;
+      cursor: ns-resize;
+
+      &.north-scale {
+        top: -5px;
+        left: 0;
+      }
+
+      &.south-scale {
+        bottom: -5px;
+        right: 0;
+      }
     }
+
+    &.corner-scale {
+      height: 10px;
+      width: 10px;
+
+      &.ne-scale {
+        top: -5px;
+        right: -5px;
+        cursor: nesw-resize;
+      }
+
+      &.se-scale {
+        bottom: -5px;
+        right: -5px;
+        cursor: nwse-resize;
+      }
+
+      &.sw-scale {
+        bottom: -5px;
+        left: -5px;
+        cursor: nesw-resize;
+      }
+
+      &.nw-scale {
+        top: -5px;
+        left: -5px;
+        cursor: nwse-resize;
+      }
+    }
+  }
 }
 
 .Resume {
-    overflow-y: hidden !important;
+  overflow-y: hidden !important;
 }

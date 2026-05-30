@@ -1,29 +1,14 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
+    "eslint:recommended", 
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
+  root: true,
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 12,
-    sourceType: 'module',
+    project: "./tsconfig.json",
+    tsconfigRootDir: __dirname
   },
-  plugins: [
-    'react',
-  ],
-  rules: {
-    'linebreak-style': 0,
-    'global-require': 0,
-    'eslint linebreak-style': [0, 'error', 'windows'],
-    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
-    'react/jsx-filename-extension': [2, {
-      extensions: ['.js', '.jsx'],
-    }],
-  },
+  plugins: ["@typescript-eslint"]
 };

@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'BIOS II';
+  src: url('./BIOSfontII.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ZIcons';
+  src: url('./Zicons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.zicons {
+  font-family: 'ZIcons';
+}
+
+@font-face {
+  font-family: 'Thick Pixels';
+  src: url('./ThickPixels.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.thick-pixels {
+  font-family: 'Thick Pixels', 'BIOS II', sans-serif;
+}

@@ -19,7 +19,7 @@ const Component = () => (
     <h3>Overview</h3>
     <ul>
       <li>
-        Lead sound designer for the studio's first independantly developed game,
+        Lead sound designer for the studio's first independently developed game,
         Blindisght.
       </li>
       <li>
